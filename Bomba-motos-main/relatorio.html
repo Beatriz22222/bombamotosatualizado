@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="assets/Logomarca.png">
+    <link rel="stylesheet" href="relatorio.css">
+    <link rel="stylesheet" href="Navbar/navbar.css">
+</head>
+<body>
+<header>
+      <!-- TOPO COM SUPORTE / ENTRAR / REGISTRAR -->
+      <div class="top-bar">
+        <a href="index.html">
+          <img src="assets/Logomarca.png" alt="Logo Bomba Motos" class="logo" />
+        </a>
+        <nav>
+          <ul class="top-menu">
+            <li><a href="#">Suporte</a></li>
+            <li><a href="Acesso/login.html">Entrar</a></li>
+            <li><a href="Acesso/register.html">Registrar</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="header-container">
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="servico.html">Serviços</a></li>
+            <li class="has-submenu">
+              <a href="javascript:void(0)" onclick="toggleSubmenu()"
+                >Cadastro &#x25BC;</a
+              >
+              <ul class="submenu" id="has-submenu">
+                <li><a href="Cadastros/cad-cliente.html">Clientes</a></li>
+                <li><a href="Cadastros/cad-veiculo.html">Veículos</a></li>
+              </ul>
+            </li>
+
+            <li><a href="consulta.html">Consultas</a></li>
+            <li><a href="relatorio.html">Relatórios</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+ <main>
+    <section id="resumo">
+        <h2>Resumo Financeiro</h2>
+        <div id="resumoDados">
+            <p>Total Arrecadado: <span id="totalArrecadado">R$ 0,00</span></p>
+            <p>Total de Motos Atendidas: <span id="totalMotos">0</span></p>
+            <p>Total de Serviços Prestados: <span id="totalServicos">0</span></p>
+            <p>Arrecadação Diária: <span id="arrecadacaoDiaria">R$ 0,00</span></p>
+            <p>Arrecadação Semanal: <span id="arrecadacaoSemanal">R$ 0,00</span></p>
+            <p>Arrecadação Mensal: <span id="arrecadacaoMensal">R$ 0,00</span></p>
+           <!-- <p>Arrecadação Anual: <span id="arrecadacaoAnual">R$ 0,00</span></p>-->
+
+        </div>
+
+        
+        <body onload="atualizarResumo()">
+
+
+    </section>
+    
+ </main>
+ <footer class="footer">
+    <p>&copy; 2025 Bomba Motos. Todos os direitos reservados.</p>
+  </footer>
+
+ <script src="relatorio.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Veículos - Bomba Motos</title>
+  <link rel="shortcut icon" href="../assets/Logomarca.png">
+  <link rel="stylesheet" href="cad-veiculo.css">  
+  <link rel="stylesheet" href="../Navbar/navbar.css">
+</head>
+<body>
+ <header>
+    <div class="top-bar">
+      <a href="../index.html">
+        <img src="../assets/Logomarca.png" alt="Logo Bomba Motos" class="logo" />
+      </a>
+      <nav>
+        <ul class="top-menu">
+          <li><a href="#">Suporte</a></li>
+          <li><a href="../Acesso/login.html">Entrar</a></li>
+          <li><a href="../Acesso/register.html">Registrar</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="header-container">
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="../servico.html">Serviços</a></li>
+          <li class="has-submenu">
+            <a href="javascript:void(0)" onclick="toggleSubmenu()">Cadastro &#x25BC;</a>
+            <ul class="submenu" id="has-submenu">
+              <li><a href="cad-cliente.html">Clientes</a></li>
+              <li><a href="cad-veiculo.html">Veículos</a></li>
+            </ul>
+          </li>
+          <li><a href="../consulta.html">Consultas</a></li>
+          <li><a href="../relatorio.html">Relatórios</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Cadastro de Veículos</h1>
+    <form id="formVeiculo" class="cadastro">
+      <label for="cliente">Nome do Cliente</label>
+      <select id="cliente" name="cliente" required></select>
+
+      <label for="modelo">Modelo da Moto</label>
+      <input type="text" id="modelo" name="modelo" required>
+
+      <label for="placa">Placa</label>
+      <input type="text" id="placa" name="placa" required>
+
+      <button type="submit">Cadastrar Veículo</button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Bomba Motos. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    async function carregarClientes() {
+      try {
+        const res = await fetch("http://localhost/bomba-motos/api/clientes.php");
+        const clientes = await res.json();
+        const select = document.getElementById("cliente");
+
+        clientes.forEach(c => {
+          const opt = document.createElement("option");
+          opt.value = c.id;
+          opt.textContent = c.nome;
+          select.appendChild(opt);
+        });
+      } catch (error) {
+        alert("Erro ao carregar clientes.");
+        console.error(error);
+      }
+    }
+
+    document.getElementById("formVeiculo").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const modelo = document.getElementById("modelo").value.trim();
+      const placa = document.getElementById("placa").value.trim();
+      const cliente_id = document.getElementById("cliente").value;
+
+      const res = await fetch("http://localhost/bomba-motos/api/veiculos.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ modelo, placa, cliente_id })
+      });
+
+      const result = await res.json();
+      if (res.ok) {
+        alert("Veículo cadastrado com sucesso!");
+        e.target.reset();
+      } else {
+        alert("Erro ao cadastrar veículo: " + (result.erro || "Erro desconhecido."));
+      }
+    });
+
+    carregarClientes();
+  </script>
+
+  <script src="../index.js"></script>
+</body>
+</html>

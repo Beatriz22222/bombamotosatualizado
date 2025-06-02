@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../assets/Logomarca.png">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../Navbar/navbar.css">
+</head>
+<body>
+<header>
+      <!-- TOPO COM SUPORTE / ENTRAR / REGISTRAR -->
+      <div class="top-bar">
+        <a href="index.html">
+          <img src="../assets/Logomarca.png" alt="Logo Bomba Motos" class="logo" />
+        </a>
+        <nav>
+          <ul class="top-menu">
+            <li><a href="#">Suporte</a></li>
+            <li><a href="login.html">Entrar</a></li>
+            <li><a href="register.html">Registrar</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="header-container">
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="../servico.html">Serviços</a></li>
+            <li class="has-submenu">
+              <a href="javascript:void(0)" onclick="toggleSubmenu()"
+                >Cadastro &#x25BC;</a
+              >
+              <ul class="submenu" id="has-submenu">
+                <li><a href="../Cadastros/cad-cliente.html">Clientes</a></li>
+                <li><a href="../Cadastros/cad-veiculo.html">Veículos</a></li>
+              </ul>
+            </li>
+
+            <li><a href="../consulta.html">Consultas</a></li>
+            <li><a href="../relatorio.html">Relatórios</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+<main>
+      <h2>Bem-vindo à Bomba Motos</h2>
+      <p>Acesse o seu cadastro</p>
+
+      <section id="acesso">
+        <h2>Acesso de funcionários</h2>
+        <form id="formAcesso">
+          <label for="modelo">Login: </label>
+          <input type="text" id="login" required />
+
+          <label for="modelo">Senha:</label>
+          <input type="password" id="modelo" required />
+
+          <button type="submit">Entrar</button>
+        </form>
+      </section>
+    </main>
+ <footer class="footer">
+    <p>&copy; 2025 Bomba Motos. Todos os direitos reservados.</p>
+  </footer>
+
+ <script src="#"></script>
+
+</body>
+</html>

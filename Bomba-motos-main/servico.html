@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Serviços - Bomba Motos</title>
+    <link rel="shortcut icon" href="assets/Logomarca.png" />
+    <link rel="stylesheet" href="servico.css" />
+    <link rel="stylesheet" href="Navbar/navbar.css" />
+  </head>
+  <body>
+    <header>
+      <!-- TOPO COM SUPORTE / ENTRAR / REGISTRAR -->
+      <div class="top-bar">
+        <a href="index.html">
+          <img src="assets/Logomarca.png" alt="Logo Bomba Motos" class="logo" />
+        </a>
+        <nav>
+          <ul class="top-menu">
+            <li><a href="#">Suporte</a></li>
+            <li><a href="Acesso/login.html">Entrar</a></li>
+            <li><a href="Acesso/register.html">Registrar</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="header-container">
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="servico.html">Serviços</a></li>
+            <li class="has-submenu">
+              <a href="javascript:void(0)" onclick="toggleSubmenu()"
+                >Cadastro &#x25BC;</a
+              >
+              <ul class="submenu" id="has-submenu">
+                <li><a href="Cadastros/cad-cliente.html">Clientes</a></li>
+                <li><a href="Cadastros/cad-veiculo.html">Veículos</a></li>
+              </ul>
+            </li>
+
+            <li><a href="consulta.html">Consultas</a></li>
+            <li><a href="relatorio.html">Relatórios</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <h2>Bem-vindo à Bomba Motos</h2>
+      <p>Gerencie sua oficina com eficiência e organização.</p>
+
+      <section id="cadastro">
+        <h2>Cadastro de Serviços</h2>
+        <form id="formCadastro">
+          <label for="modelo">Placa do Veículo</label>
+          <input type="text" id="placa" required />
+
+          <label for="modelo">Modelo da Moto:</label>
+          <input type="text" id="modelo" required />
+
+          <label for="servico">Serviços Prestados:</label>
+          <input type="text" id="servico" required />
+
+          <label for="dataEntrada">Data de Entrada:</label>
+          <input type="date" id="dataEntrada" required />
+
+          <label for="valor">Valor do Serviço (R$):</label>
+          <input type="number" id="valor" required />
+
+          <button type="submit">Cadastrar</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="cadastro.js"></script>
+
+    <footer class="footer">
+      <p>&copy; 2025 Bomba Motos. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>

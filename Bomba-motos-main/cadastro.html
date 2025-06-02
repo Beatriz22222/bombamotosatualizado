@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="shortcut icon" href="../assets/Logo.png" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="Navbar/navbar.css" />
+  </head>
+  <body>
+    <header>
+      <!-- TOPO COM SUPORTE / ENTRAR / REGISTRAR -->
+      <div class="top-bar">
+        <a href="index.html">
+          <img src="assets/Logomarca.png" alt="Logo Bomba Motos" class="logo" />
+        </a>
+        <nav>
+          <ul class="top-menu">
+            <li><a href="#">Suporte</a></li>
+            <li><a href="servico.html">Entrar</a></li>
+            <li><a href="consulta.html">Registrar</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="header-container">
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="servico.html">Serviços</a></li>
+            <li class="has-submenu">
+              <a href="javascript:void(0)" onclick="toggleSubmenu()"
+                >Cadastro &#x25BC;</a
+              >
+              <ul class="submenu" id="has-submenu">
+                <li><a href="Cadastros/cad-cliente.html">Clientes</a></li>
+                <li><a href="Cadastros/cad-veiculo.html">Veículos</a></li>
+              </ul>
+            </li>
+
+            <li><a href="consulta.html">Consultas</a></li>
+            <li><a href="relatorio.html">Relatórios</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <script src="cadastro.js"></script>
+  </body>
+</html>

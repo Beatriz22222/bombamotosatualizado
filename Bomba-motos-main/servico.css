@@ -1,0 +1,103 @@
+/* =====================================
+   RESET GERAL
+===================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* =====================================
+   CORPO
+===================================== */
+body {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+
+body {
+  background-color: #000;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #ff0000;
+  margin-bottom: 30px;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  color: #ff0000;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 5px;
+  background: #222;
+  color: white;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background: #ff0000;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #cc0000;
+}
+
+/* Scrollbar padrão para Chrome, Edge e Safari */
+::-webkit-scrollbar {
+  width: 10px; /* largura da barra lateral */
+}
+
+/* Fundo da scrollbar */
+::-webkit-scrollbar-track {
+  background: #1e1e1e; /* preto/cinza escuro */
+}
+
+/* Parte que se move */
+::-webkit-scrollbar-thumb {
+  background-color: #e60000; /* vermelho vibrante */
+  border-radius: 8px;
+  border: 2px solid #1e1e1e; /* borda para dar um destaque */
+}
+
+/* Ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ff1a1a; /* vermelho um pouco mais claro */
+}
+
+

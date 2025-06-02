@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Clientes - Bomba Motos</title>
+  <link rel="shortcut icon" href="../assets/Logomarca.png">
+  <link rel="stylesheet" href="cad-cliente.css">
+  <link rel="stylesheet" href="../Navbar/navbar.css">
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <a href="../index.html">
+        <img src="../assets/Logomarca.png" alt="Logo Bomba Motos" class="logo" />
+      </a>
+      <nav>
+        <ul class="top-menu">
+          <li><a href="#">Suporte</a></li>
+          <li><a href="../Acesso/login.html">Entrar</a></li>
+          <li><a href="../Acesso/register.html">Registrar</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="header-container">
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="../servico.html">Serviços</a></li>
+          <li class="has-submenu">
+            <a href="javascript:void(0)" onclick="toggleSubmenu()">Cadastro &#x25BC;</a>
+            <ul class="submenu" id="has-submenu">
+              <li><a href="cad-cliente.html">Clientes</a></li>
+              <li><a href="cad-veiculo.html">Veículos</a></li>
+            </ul>
+          </li>
+          <li><a href="../consulta.html">Consultas</a></li>
+          <li><a href="../relatorio.html">Relatórios</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Cadastro de Clientes</h1>
+    <form id="formCliente" class="form">
+      <label for="nome">Nome Completo</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="telefone">Telefone</label>
+      <input type="tel" id="telefone" name="telefone" required>
+
+      <button type="submit">Cadastrar Cliente</button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Bomba Motos. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    document.getElementById("formCliente").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const nome = document.getElementById("nome").value.trim();
+      const telefone = document.getElementById("telefone").value.trim();
+
+      const res = await fetch("http://localhost/bomba-motos/api/clientes.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nome, telefone })
+      });
+
+      const result = await res.json();
+      if (res.ok) {
+        alert("Cliente cadastrado com sucesso!");
+        e.target.reset();
+      } else {
+        alert("Erro ao cadastrar cliente: " + (result.erro || "Erro desconhecido."));
+      }
+    });
+  </script>
+
+  <script src="../index.js"></script>
+</body>
+</html>
+
