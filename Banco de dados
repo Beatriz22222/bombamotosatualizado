@@ -1,0 +1,38 @@
+-- Database: bomba_motos
+CREATE DATABASE IF NOT EXISTS bomba_motos;
+USE bomba_motos;
+
+-- Table: clientes
+CREATE TABLE IF NOT EXISTS clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    telefone VARCHAR(20)
+);
+
+-- Table: veiculos
+CREATE TABLE IF NOT EXISTS veiculos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    modelo VARCHAR(255) NOT NULL,
+    placa VARCHAR(10) UNIQUE NOT NULL,
+    cliente_id INT,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+);
+
+-- Table: servicos
+CREATE TABLE IF NOT EXISTS servicos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    veiculo_id INT,
+    data_entrada DATE NOT NULL,
+    descricao TEXT, -- Renomeado de 'servico' para 'descricao' para melhor clareza, pois é uma descrição do serviço
+    valor DECIMAL(10, 2) NOT NULL,
+    data_saida DATE, -- Adicionado com base na inferência de "dataSaida" no cadastro.js
+    FOREIGN KEY (veiculo_id) REFERENCES veiculos(id)
+);
+
+-- Optional: Table for User Authentication (based on login/register links)
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL, -- Store hashed passwords
+    email VARCHAR(255) UNIQUE
+);
