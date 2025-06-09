@@ -1,7 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
-require_once("db.php");
+require_once("db_connect.php");
 
 $stmt = $pdo->query("
     SELECT s.*, v.modelo 
